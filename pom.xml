@@ -327,10 +327,16 @@
 
   <profiles>
     <profile>
-        <id>sonar</id>
+        <id>neuvector</id>
         <activation>
             <activeByDefault>true</activeByDefault>
         </activation>
+        <properties>
+            <!-- Optional URL to server. Default value is http://localhost:9000 -->
+            <sonar.host.url>
+              https://3.39.21.91:31385/
+            </sonar.host.url>
+        </properties>
     </profile>
     <profile>
       <id>m2e</id>
