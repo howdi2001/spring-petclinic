@@ -333,9 +333,9 @@
         </activation>
         <properties>
             <!-- Optional URL to server. Default value is http://localhost:9000 -->
-            <sonar.host.url>
+            <neuvector.host.url>
               https://3.39.21.91:31385/
-            </sonar.host.url>
+            </neuvector.host.url>
         </properties>
     </profile>
     <profile>
