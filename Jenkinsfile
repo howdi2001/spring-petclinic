@@ -101,9 +101,7 @@ spec:
         }
 
         stage('Scan image') {
-          steps {
             neuvector registrySelection: 'Local', repository: 'alpine'
-          }
         }
         // stage('Static Code Analysis') {
         //   steps {
