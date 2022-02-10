@@ -115,13 +115,6 @@ spec:
         // }  
       }
     }
-
-    stage('Scan image') {
-      steps {
-        euvector registrySelection: 'harbor', repository: 'library/samples/spring-petclinic:v1.0.1'
-      }
-    }
-
     stage('Containerize') {
       steps {
         container('kaniko') {
