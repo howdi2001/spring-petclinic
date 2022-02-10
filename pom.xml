@@ -326,18 +326,7 @@
   </pluginRepositories>
 
   <profiles>
-    <profile>
-        <id>neuvector</id>
-        <activation>
-            <activeByDefault>true</activeByDefault>
-        </activation>
-        <properties>
-            <!-- Optional URL to server. Default value is http://localhost:9000 -->
-            <neuvector.host.url>
-              https://3.39.21.91:31385/
-            </neuvector.host.url>
-        </properties>
-    </profile>
+
     <profile>
       <id>m2e</id>
       <activation>
