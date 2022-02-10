@@ -99,20 +99,20 @@ spec:
             }
           } 
         }
-        stage('Static Code Analysis') {
-          steps {
-            container('maven') {
-              withSonarQubeEnv('My SonarQube') { 
-                sh """
-                mvn sonar:sonar \
-                  -Dsonar.projectKey=spring-petclinic \
-                  -Dsonar.host.url=${env.SONAR_HOST_URL} \
-                  -Dsonar.login=${env.SONAR_AUTH_TOKEN}
-                """
-              }
-            }
-          }
-        }  
+        // stage('Static Code Analysis') {
+        //   steps {
+        //     container('maven') {
+        //       withSonarQubeEnv('My SonarQube') { 
+        //         sh """
+        //         mvn sonar:sonar \
+        //           -Dsonar.projectKey=spring-petclinic \
+        //           -Dsonar.host.url=${env.SONAR_HOST_URL} \
+        //           -Dsonar.login=${env.SONAR_AUTH_TOKEN}
+        //         """
+        //       }
+        //     }
+        //   }
+        // }  
       }
     }
     stage('Containerize') {
@@ -123,12 +123,12 @@ spec:
         }
       }
     }
-    stage('Image Vulnerability Scan') {
-      steps {
-        writeFile file: 'anchore_images', text: "${env.HARBOR_URL}/library/samples/spring-petclinic:v1.0.${env.BUILD_ID}"
-        anchore name: 'anchore_images'
-      }
-    }
+    // stage('Image Vulnerability Scan') {
+    //   steps {
+    //     writeFile file: 'anchore_images', text: "${env.HARBOR_URL}/library/samples/spring-petclinic:v1.0.${env.BUILD_ID}"
+    //     anchore name: 'anchore_images'
+    //   }
+    // }
     stage('Approval') {
       input {
         message "Proceed to deploy?"
@@ -160,4 +160,3 @@ spec:
     }   
   }
 }
-
