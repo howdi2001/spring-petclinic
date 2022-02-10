@@ -99,7 +99,6 @@ spec:
             }
           } 
         }
-
         // stage('Static Code Analysis') {
         //   steps {
         //     container('maven') {
@@ -116,6 +115,13 @@ spec:
         // }  
       }
     }
+
+    stage('Scan image') {
+      step{
+        euvector registrySelection: 'harbor', repository: 'library/samples/spring-petclinic:v1.0.1'
+      }
+    }
+
     stage('Containerize') {
       steps {
         container('kaniko') {
@@ -161,5 +167,4 @@ spec:
     }   
   }
 }
-
 
