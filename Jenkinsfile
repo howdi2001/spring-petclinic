@@ -117,7 +117,7 @@ spec:
     }
 
     stage('Scan image') {
-      step{
+      steps {
         euvector registrySelection: 'harbor', repository: 'library/samples/spring-petclinic:v1.0.1'
       }
     }
