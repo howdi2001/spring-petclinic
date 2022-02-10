@@ -100,19 +100,6 @@ spec:
           } 
         }
 
-        stage('Scan image') {
-          steps {
-            container('maven') {
-              withNeuVectorEnv('My neuvector') { 
-                sh """
-                mvn neuvector:neuvector \
-                  -Dneuvector.projectKey=spring-petclinic \
-                  -Dneuvector.host.url=https://3.39.21.91:31385/ 
-                """
-              }
-            }
-          }
-        }
         // stage('Static Code Analysis') {
         //   steps {
         //     container('maven') {
