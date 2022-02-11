@@ -130,17 +130,10 @@ spec:
     //   }
     // }
     
-    stage('build') {
-      steps {
-         sh """
-           docker build -t ${env.HARBOR_URL}/library/samples/spring-petclinic:v1.0.${env.BUILD_ID} .
-           """
-      }
-    }
     
     stage('Scan Local image') {
       steps {
-        neuvector registrySelection: 'harbor', repository: '${env.HARBOR_URL}/library/samples/spring-petclinic', scanLayers: true, standaloneScanner: true, tag: 'v1.0.${env.BUILD_ID}'
+        neuvector registrySelection: 'harbor', repository: '${env.HARBOR_URL}/library/samples/spring-petclinic', tag: 'v1.0.${env.BUILD_ID}'
       }
     }
     
