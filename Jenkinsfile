@@ -129,6 +129,14 @@ spec:
     //     anchore name: 'anchore_images'
     //   }
     // }
+    
+    stage('Scan Local image') {
+      steps {
+        neuvector registrySelection: 'harbor', repository: '/library/samples/spring-petclinic', scanLayers: true, standaloneScanner: true, tag: 'v1.0.${env.BUILD_ID}'
+      }
+    }
+    
+    
     stage('Approval') {
       input {
         message "Proceed to deploy?"
